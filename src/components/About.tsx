@@ -4,9 +4,9 @@ import AnimatedDiv from './AnimatedDiv'
 const About = () => {
   return (
     <AnimatedDiv>
-        <div id='about' className='w-full flex flex-col justify-center items-center'>
-            <h1 className=' text-[24px] font-mono'>Conoce un poco más de mí</h1>
-            <div className='flex flex-wrap justify-center gap-6 p-4'>
+        <div id='about' className='w-full flex flex-col justify-center items-center mt-10 '>
+            <h1 className=' text-[24px] font-mono mt-20'>Conoce un poco más de mí</h1>
+            <div className='flex flex-wrap justify-center gap-6 p-4 mt-10 mb-10'>
     <div className='flex flex-col items-center p-4 bg-gray-100 rounded-lg shadow-md w-full md:w-1/3 lg:w-1/4'>
         <div className='text-4xl justify-items-center mb-2'>
             <img 

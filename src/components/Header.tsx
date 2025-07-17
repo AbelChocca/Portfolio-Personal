@@ -12,8 +12,8 @@ const Header = () => {
             alt='Logo'/>
             <div className='flex gap-4 justify-between items-center'>
                 <a href='#about' className={buttonHeader}><p>About</p></a>
-                <a href='#' className={buttonHeader}><p>Proyectos</p></a>
-                <a href='#' className={buttonHeader}><p>Skills</p></a>
+                <a href='#proyectos' className={buttonHeader}><p>Proyectos</p></a>
+                <a href='#skills' className={buttonHeader}><p>Skills</p></a>
                 <a href='#' className={buttonHeader}><p>Contacto</p></a>
             </div>
         </div>
