@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import AnimatedDiv from './AnimatedDiv'
 
+import GaleriaChocca from '../assets/image/jeans_bgoo.jpg'
+
 const Proyectos = () => {
   const [isHovered, setHovered] = useState<boolean>(false)
   const [showInfo, setShowInfo] = useState<boolean>(false) // tap en mobile
@@ -26,7 +28,7 @@ const Proyectos = () => {
         >
           <img 
             alt='Chocca Catalogue'
-            src='./src/assets/image/jeans_bgoo.jpg'
+            src={GaleriaChocca}
             className='w-full h-full m-4 rounded-lg opacity-85'
           />
 

@@ -4,6 +4,7 @@ import AnimatedDiv from './AnimatedDiv'
 import buttonHeader from '../styles/buttonHeader'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useDarkMode } from '../dark-mode/DarkModeContext'
+import Logo from '../assets/image/logo.png'
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -29,7 +30,7 @@ const Header = () => {
           {/* Logo */}
           <img
             className="w-22 h-22"
-            src="/src/assets/image/logo.png"
+            src={Logo}
             alt="Logo"
           />
 
