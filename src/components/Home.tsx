@@ -1,5 +1,6 @@
 import AnimatedDiv from './AnimatedDiv'
-import FotoProfile from '../assets/image/foto_profile.jpeg'
+import FotoProfile from '/assets/image/foto_profile.jpeg'
+
 
 const Home = () => {
   return (

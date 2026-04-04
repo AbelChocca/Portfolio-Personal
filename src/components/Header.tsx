@@ -4,7 +4,7 @@ import AnimatedDiv from './AnimatedDiv'
 import buttonHeader from '../styles/buttonHeader'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useDarkMode } from '../dark-mode/DarkModeContext'
-import Logo from '../assets/image/logo.png'
+import Logo from '/assets/image/logo.png'
 
 const navLinks = [
   { name: 'About', href: '#about' },

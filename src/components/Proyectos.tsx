@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import AnimatedDiv from './AnimatedDiv'
 
-import GaleriaChocca from '../assets/image/jeans_bgoo.jpg'
+import GaleriaChocca from '/assets/image/jeans_bgoo.jpg'
 
 const Proyectos = () => {
   const [isHovered, setHovered] = useState<boolean>(false)
