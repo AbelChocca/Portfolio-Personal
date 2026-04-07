@@ -40,7 +40,7 @@ const Proyectos = () => {
               </p>
               <div className='flex gap-2'>
                 <button className='bg-black/80 w-[80px] text-white cursor-pointer hover:scale-105 duration-300 transition rounded-lg py-1'>
-                  <a target='_blank' href='https://galeria-chocca-frontend.vercel.app/'>Demo</a>
+                  <a target='_blank' href='https://chocca.com.pe/'>Demo</a>
                 </button>
                 <button className='bg-black/80 w-[80px] text-white cursor-pointer hover:scale-105 duration-300 transition rounded-lg py-1'>
                   <a target='_blank' href='https://github.com/AbelChocca/Galeria-Chocca-Readme'>GitHub</a>
