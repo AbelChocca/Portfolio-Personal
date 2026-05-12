@@ -1,46 +1,267 @@
-import AnimatedDiv from './AnimatedDiv'
-import { motion } from 'framer-motion'
+import { VscAzure } from "react-icons/vsc";
+import AnimatedDiv from "./AnimatedDiv";
 
-const skillsData = [
-  { name: 'Python', icon: 'https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white' },
-  { name: 'PostgreSQL', icon: 'https://img.shields.io/badge/-PostgreSQL-336791?style=flat&logo=postgresql&logoColor=white' },
-  { name: 'React', icon: 'https://img.shields.io/badge/-React-61DAFB?style=flat&logo=react&logoColor=black' },
-  { name: 'Tailwind CSS', icon: 'https://img.shields.io/badge/-Tailwind_CSS-06B6D4?style=flat&logo=tailwind-css&logoColor=white' },
-  { name: 'Docker', icon: 'https://img.shields.io/badge/-Docker-2496ED?style=flat&logo=docker&logoColor=white' },
-  { name: 'GitHub', icon: 'https://img.shields.io/badge/-GitHub-181717?style=flat&logo=github&logoColor=white' },
-  { name: 'FastAPI', icon: 'https://img.shields.io/badge/-FastAPI-009688?style=flat&logo=fastapi&logoColor=white' },
-  { name: 'SQLAlchemy', icon: 'https://img.shields.io/badge/-SQLAlchemy-000000?style=flat&logo=sqlalchemy&logoColor=white' },
-  { name: 'Redis', icon: 'https://img.shields.io/badge/-Redis-DC382D?style=flat&logo=redis&logoColor=white' },
-  { name: 'Next.js', icon: 'https://img.shields.io/badge/-Next.js-000000?style=flat&logo=next.js&logoColor=white' },
-  { name: 'Pydantic', icon: 'https://img.shields.io/badge/-Pydantic-009688?style=flat&logo=python&logoColor=white' },
-]
+import {
+  SiPython,
+  SiPostgresql,
+  SiReact,
+  SiTailwindcss,
+  SiDocker,
+  SiGithub,
+  SiFastapi,
+  SiRedis,
+  SiNextdotjs,
+  SiTypescript,
+  SiNestjs,
+  SiPrisma,
+} from "react-icons/si";
+
+const skills = [
+  {
+    category: "Backend",
+    items: [
+      {
+        name: "Python",
+        icon: SiPython,
+      },
+      {
+        name: "FastAPI",
+        icon: SiFastapi,
+      },
+      {
+        name: "PostgreSQL",
+        icon: SiPostgresql,
+      },
+      {
+        name: "Redis",
+        icon: SiRedis,
+      },
+      {
+        name: "NestJS",
+        icon: SiNestjs,
+      },
+      {
+        name: "Prisma",
+        icon: SiPrisma,
+      },
+    ],
+  },
+
+  {
+    category: "Frontend",
+    items: [
+      {
+        name: "React",
+        icon: SiReact,
+      },
+      {
+        name: "Next.js",
+        icon: SiNextdotjs,
+      },
+      {
+        name: "Tailwind CSS",
+        icon: SiTailwindcss,
+      },
+      {
+        name: "TypeScript",
+        icon: SiTypescript,
+      },
+    ],
+  },
+
+  {
+    category: "Cloud & Tools",
+    items: [
+      {
+        name: "Azure",
+        icon: VscAzure,
+      },
+      {
+        name: "Docker",
+        icon: SiDocker,
+      },
+      {
+        name: "GitHub",
+        icon: SiGithub,
+      },
+    ],
+  },
+];
 
 const Skills = () => {
   return (
-    <AnimatedDiv>
-      <div id="skills" className="flex flex-col justify-center items-center mt-10">
-        <h1 className="font-mono text-2xl mb-6">Skills</h1>
+    <section
+      id="skills"
+      className="
+        relative
+        w-full
+        py-24 md:py-36
+        overflow-hidden
+      "
+    >
+      {/* Glow */}
+      <div
+        className="
+          absolute
+          top-[-120px]
+          right-[-120px]
+          w-[320px]
+          h-[320px]
+          rounded-full
+          bg-cyan-500/10
+          blur-3xl
+        "
+      />
 
-        <div className="w-full overflow-hidden relative">
-          <motion.div
-            className="flex gap-6"
-            animate={{ x: ['0%', '-100%'] }}
-            transition={{ repeat: Infinity, repeatType: 'loop', duration: 20, ease: 'linear' }}
-          >
-            {skillsData.concat(skillsData).map((skill, index) => (
-              <div key={index} className="flex-shrink-0">
-                <img
-                  src={skill.icon}
-                  alt={skill.name}
-                  className="w-auto h-12 md:h-16"
-                />
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
+        <AnimatedDiv stagger preset="fadeUp" distance={18}>
+          {/* HEADER */}
+          <div className="max-w-3xl mb-16">
+            <p
+              className="
+                text-[var(--primary)]
+                uppercase
+                tracking-wide
+                text-sm
+                font-medium
+                mb-4
+              "
+            >
+              Tech Stack
+            </p>
+
+            <h2
+              className="
+                text-4xl
+                md:text-5xl
+                font-bold
+                tracking-tight
+                leading-tight
+                text-[var(--foreground)]
+              "
+            >
+              Technologies I use to build modern applications.
+            </h2>
+
+            <p
+              className="
+                mt-6
+                text-base md:text-lg
+                leading-relaxed
+                text-[var(--muted)]
+              "
+            >
+              Focused on backend engineering, scalable APIs and modern frontend
+              experiences using current web technologies.
+            </p>
+          </div>
+
+          {/* CATEGORIES */}
+          <div className="space-y-14">
+            {skills.map((group) => (
+              <div key={group.category}>
+                {/* CATEGORY */}
+                <h3
+                  className="
+                    text-xl
+                    font-semibold
+                    mb-6
+                    text-[var(--foreground)]
+                  "
+                >
+                  {group.category}
+                </h3>
+
+                {/* GRID */}
+                <div
+                  className="
+                    grid
+                    grid-cols-2
+                    sm:grid-cols-3
+                    md:grid-cols-4
+                    gap-5
+                  "
+                >
+                  {group.items.map((skill) => {
+                    const Icon = skill.icon;
+
+                    return (
+                      <AnimatedDiv
+                        key={skill.name}
+                        direction="up"
+                        distance={10}
+                      >
+                        <div
+                          className="
+                            group
+                            relative
+                            overflow-hidden
+                            rounded-3xl
+                            border border-[var(--border)]
+                            bg-[var(--card)]
+                            backdrop-blur-xl
+                            p-6
+                            transition-all duration-500
+                            hover:-translate-y-2
+                            hover:border-[var(--primary)]
+                          "
+                        >
+                          {/* Glow */}
+                          <div
+                            className="
+                              absolute inset-0
+                              opacity-0
+                              group-hover:opacity-100
+                              transition-opacity duration-500
+                              bg-gradient-to-br
+                              from-cyan-500/10
+                              to-transparent
+                            "
+                          />
+
+                          <div className="relative z-10">
+                            {/* ICON */}
+                            <div
+                              className="
+                                w-14 h-14
+                                rounded-2xl
+                                flex items-center justify-center
+                                bg-cyan-500/10
+                                border border-cyan-400/20
+                                mb-5
+                              "
+                            >
+                              <Icon
+                                className="
+                                  w-7 h-7
+                                  text-cyan-400
+                                "
+                              />
+                            </div>
+
+                            {/* TEXT */}
+                            <h4
+                              className="
+                                text-base
+                                font-medium
+                                text-[var(--foreground)]
+                              "
+                            >
+                              {skill.name}
+                            </h4>
+                          </div>
+                        </div>
+                      </AnimatedDiv>
+                    );
+                  })}
+                </div>
               </div>
             ))}
-          </motion.div>
-        </div>
+          </div>
+        </AnimatedDiv>
       </div>
-    </AnimatedDiv>
-  )
-}
+    </section>
+  );
+};
 
-export default Skills
+export default Skills;

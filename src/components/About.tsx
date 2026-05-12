@@ -1,74 +1,194 @@
-import AnimatedDiv from './AnimatedDiv'
-import { useState, useEffect } from 'react'
+import { BrainCircuit, Code2, Rocket } from "lucide-react";
+
+import AnimatedDiv from "./AnimatedDiv";
+
+const cards = [
+  {
+    title: "Building Digital Products",
+    description:
+      "I enjoy designing scalable backend architectures and modern web applications focused on performance, clean structure and user experience.",
+    icon: Code2,
+  },
+  {
+    title: "Continuous Learning",
+    description:
+      "Currently focused on backend engineering with Python, FastAPI and cloud technologies, while continuously improving my frontend skills with React and modern UI systems.",
+    icon: BrainCircuit,
+  },
+  {
+    title: "Startup & Innovation Mindset",
+    description:
+      "Interested in startups, SaaS products and online business ideas where technology can solve real-world problems and create scalable solutions.",
+    icon: Rocket,
+  },
+];
 
 const About = () => {
-  const [isDark, setIsDark] = useState(false)
-
-  // Sincroniza con localStorage o tu contexto global
-  useEffect(() => {
-    const mode = localStorage.getItem('darkMode') === 'true'
-    setIsDark(mode)
-
-    // Aplica la clase 'dark' al html para tus variables CSS
-    document.documentElement.classList.toggle('dark', mode)
-  }, [])
-
-  // Usar variables CSS
-  const bgStyle = { backgroundColor: 'var(--bg-color)' }
-  const textStyle = { color: 'var(--text-color)' }
-
   return (
-    <AnimatedDiv>
-      <div id='about' className='w-full flex flex-col justify-center items-center mt-10'>
-        <h1 className='text-[24px] font-mono mt-20' style={textStyle}>
-          Conoce un poco más de mí
-        </h1>
+    <section
+      id="about"
+      className="
+        relative
+        w-full
+        py-24 md:py-36
+        overflow-hidden
+      "
+    >
+      {/* Glow decorativo */}
+      <div
+        className="
+          absolute
+          right-[-120px]
+          top-[20%]
+          w-[320px]
+          h-[320px]
+          rounded-full
+          bg-indigo-500/10
+          blur-3xl
+        "
+      />
 
-        <div className='flex flex-wrap justify-center gap-6 p-4 mt-10 mb-10'>
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
+        <AnimatedDiv stagger preset="fadeUp" distance={18}>
+          {/* HEADER */}
+          <div className="max-w-3xl mb-14">
+            <p
+              className="
+                text-[var(--primary)]
+                font-medium
+                tracking-wide
+                uppercase
+                text-sm
+                mb-4
+              "
+            >
+              About Me
+            </p>
 
-          {/* Bloque 1 */}
-          <div
-            className='flex flex-col items-center p-6 rounded-lg shadow-md w-full md:w-1/3 lg:w-1/4 border border-gray-700'
-            style={bgStyle}
-          >
-            <h2 className='text-lg font-semibold mb-2' style={textStyle}>
-              Pasión por la tecnología
+            <h2
+              className="
+                text-4xl
+                md:text-5xl
+                font-bold
+                tracking-tight
+                leading-tight
+                text-[var(--foreground)]
+              "
+            >
+              Passionate about building modern software experiences.
             </h2>
-            <p className='text-center' style={textStyle}>
-              Apasionado por la <strong>programación backend y frontend</strong>. Me gusta diseñar y estructurar soluciones a problemas complejos mediante la creación de <strong>Aplicaciones Web</strong>.
+
+            <p
+              className="
+                mt-6
+                text-base md:text-lg
+                leading-relaxed
+                text-[var(--muted)]
+              "
+            >
+              I enjoy combining backend engineering, frontend development and
+              cloud technologies to create scalable applications and digital
+              products with real impact.
             </p>
           </div>
 
-          {/* Bloque 2 */}
+          {/* CARDS */}
           <div
-            className='flex flex-col items-center p-6 rounded-lg shadow-md w-full md:w-1/3 lg:w-1/4 border border-gray-700'
-            style={bgStyle}
+            className="
+              grid
+              grid-cols-1
+              md:grid-cols-3
+              gap-6
+            "
           >
-            <h2 className='text-lg font-semibold mb-2' style={textStyle}>
-              Tecnologías clave
-            </h2>
-            <p className='text-center' style={textStyle}>
-              Actualmente trabajo con <strong>Python y JavaScript</strong>. Me considero más orientado a Python, pero siempre sigo aprendiendo y mejorando en ambos lenguajes.
-            </p>
-          </div>
+            {cards.map((card, index) => {
+              const Icon = card.icon;
 
-          {/* Bloque 3 */}
-          <div
-            className='flex flex-col items-center p-6 rounded-lg shadow-md w-full md:w-1/3 lg:w-1/4 border border-gray-700'
-            style={bgStyle}
-          >
-            <h2 className='text-lg font-semibold mb-2' style={textStyle}>
-              Intereses en startups
-            </h2>
-            <p className='text-center' style={textStyle}>
-              Me gusta colaborar en proyectos relacionados al <strong>negocio online y startups</strong>, buscando siempre innovación y aprendizaje constante.
-            </p>
-          </div>
+              return (
+                <AnimatedDiv key={index} direction="up" distance={12}>
+                  <div
+                    className="
+                      group
+                      relative
+                      h-full
+                      rounded-3xl
+                      border border-[var(--border)]
+                      bg-[var(--card)]
+                      backdrop-blur-xl
+                      p-8
+                      overflow-hidden
+                      transition-all duration-500
+                      hover:-translate-y-2
+                      hover:border-[var(--primary)]
+                    "
+                  >
+                    {/* Glow hover */}
+                    <div
+                      className="
+                        absolute
+                        inset-0
+                        opacity-0
+                        group-hover:opacity-100
+                        transition-opacity duration-500
+                        bg-gradient-to-br
+                        from-indigo-500/10
+                        to-transparent
+                      "
+                    />
 
-        </div>
+                    {/* Icon */}
+                    <div
+                      className="
+                        relative
+                        z-10
+                        w-12 h-12
+                        rounded-2xl
+                        flex items-center justify-center
+                        bg-indigo-500/10
+                        border border-indigo-400/20
+                        mb-6
+                      "
+                    >
+                      <Icon
+                        className="
+                          w-6 h-6
+                          text-[var(--primary)]
+                        "
+                      />
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative z-10">
+                      <h3
+                        className="
+                          text-xl
+                          font-semibold
+                          mb-4
+                          text-[var(--foreground)]
+                        "
+                      >
+                        {card.title}
+                      </h3>
+
+                      <p
+                        className="
+                          leading-relaxed
+                          text-sm md:text-base
+                          text-[var(--muted)]
+                        "
+                      >
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                </AnimatedDiv>
+              );
+            })}
+          </div>
+        </AnimatedDiv>
       </div>
-    </AnimatedDiv>
-  )
-}
+    </section>
+  );
+};
 
-export default About
+export default About;
