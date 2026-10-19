@@ -1,25 +1,25 @@
-import { BrainCircuit, Code2, Rocket } from "lucide-react";
+import { BrainCircuit, Code2, ChartNoAxesCombined } from "lucide-react";
 
 import AnimatedDiv from "./AnimatedDiv";
 
 const cards = [
   {
-    title: "Building Digital Products",
+    title: "Análisis y mejora de procesos",
     description:
-      "I enjoy designing scalable backend architectures and modern web applications focused on performance, clean structure and user experience.",
+      "Me interesa comprender cómo funcionan las operaciones de un negocio, identificar tareas manuales y oportunidades de mejora, y transformar esos procesos en flujos digitales más organizados y eficientes.",
+    icon: ChartNoAxesCombined,
+  },
+  {
+    title: "Tecnología aplicada al negocio",
+    description:
+      "Desarrollo soluciones con Python, SQL y tecnologías backend para automatizar tareas, integrar información y facilitar el seguimiento de operaciones. Mi experiencia incluye sistemas de inventario, ventas y gestión comercial.",
     icon: Code2,
   },
   {
-    title: "Continuous Learning",
+    title: "Aprendizaje y mejora continua",
     description:
-      "Currently focused on backend engineering with Python, FastAPI and cloud technologies, while continuously improving my frontend skills with React and modern UI systems.",
+      "Busco seguir desarrollando mis capacidades en análisis de datos, automatización e indicadores de gestión. Me motiva aprender de problemas reales, colaborar con otros y encontrar formas prácticas de mejorar los procesos.",
     icon: BrainCircuit,
-  },
-  {
-    title: "Startup & Innovation Mindset",
-    description:
-      "Interested in startups, SaaS products and online business ideas where technology can solve real-world problems and create scalable solutions.",
-    icon: Rocket,
   },
 ];
 
@@ -45,12 +45,13 @@ const About = () => {
           rounded-full
           bg-indigo-500/10
           blur-3xl
+          pointer-events-none
         "
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
         <AnimatedDiv stagger preset="fadeUp" distance={18}>
-          {/* HEADER */}
+          {/* ENCABEZADO */}
           <div className="max-w-3xl mb-14">
             <p
               className="
@@ -62,7 +63,7 @@ const About = () => {
                 mb-4
               "
             >
-              About Me
+              Sobre mí
             </p>
 
             <h2
@@ -75,7 +76,8 @@ const About = () => {
                 text-[var(--foreground)]
               "
             >
-              Passionate about building modern software experiences.
+              Me interesa entender cómo funcionan los negocios y mejorarlos a
+              través de la tecnología.
             </h2>
 
             <p
@@ -86,13 +88,19 @@ const About = () => {
                 text-[var(--muted)]
               "
             >
-              I enjoy combining backend engineering, frontend development and
-              cloud technologies to create scalable applications and digital
-              products with real impact.
+              Soy estudiante de Ingeniería de Software, con enfoque en
+              desarrollo backend e interés en la mejora de procesos, la
+              automatización y el análisis de datos. Me gusta comprender cómo
+              funciona una operación antes de desarrollar una solución
+              tecnológica. A través de Galería Chocca, un sistema ERP y
+              e-commerce para un negocio real de ropa, he trabajado en la
+              digitalización de procesos comerciales como inventarios, precios,
+              pedidos y facturación, buscando mejorar su organización,
+              trazabilidad y visibilidad operativa.
             </p>
           </div>
 
-          {/* CARDS */}
+          {/* TARJETAS */}
           <div
             className="
               grid
@@ -101,11 +109,11 @@ const About = () => {
               gap-6
             "
           >
-            {cards.map((card, index) => {
+            {cards.map((card) => {
               const Icon = card.icon;
 
               return (
-                <AnimatedDiv key={index} direction="up" distance={12}>
+                <AnimatedDiv key={card.title} direction="up" distance={12}>
                   <div
                     className="
                       group
@@ -122,7 +130,7 @@ const About = () => {
                       hover:border-[var(--primary)]
                     "
                   >
-                    {/* Glow hover */}
+                    {/* Glow al pasar el cursor */}
                     <div
                       className="
                         absolute
@@ -133,10 +141,11 @@ const About = () => {
                         bg-gradient-to-br
                         from-indigo-500/10
                         to-transparent
+                        pointer-events-none
                       "
                     />
 
-                    {/* Icon */}
+                    {/* Icono */}
                     <div
                       className="
                         relative
@@ -157,7 +166,7 @@ const About = () => {
                       />
                     </div>
 
-                    {/* Content */}
+                    {/* Contenido */}
                     <div className="relative z-10">
                       <h3
                         className="
