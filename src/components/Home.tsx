@@ -1,5 +1,5 @@
 import AnimatedDiv from "./AnimatedDiv";
-import FotoProfile from "/assets/image/foto_profile.jpeg";
+import FotoProfile from "/assets/image/foto_profile.png";
 
 const Home = () => {
   return (
@@ -27,7 +27,7 @@ const Home = () => {
         <div className="max-w-2xl">
           <AnimatedDiv stagger direction="up" distance={18}>
             <p className="text-indigo-400 font-medium mb-3 tracking-wide">
-              FULLSTACK DEVELOPER
+              ESTUDIANTE DE INGENIERÍA DE SOFTWARE
             </p>
 
             <h1 className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-none tracking-tight">
@@ -39,8 +39,11 @@ const Home = () => {
             </h1>
 
             <p className="mt-6 text-base md:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed">
-              Building scalable backend systems and modern web experiences using
-              FastAPI, React, PostgreSQL and cloud technologies.
+              Me enfoco en desarrollar soluciones tecnológicas que mejoran
+              procesos y operaciones de negocio. Utilizo Python, SQL y
+              tecnologías backend para digitalizar flujos de trabajo,
+              automatizar tareas y facilitar el análisis de información y la
+              toma de decisiones.
             </p>
 
             {/* BOTONES */}
@@ -56,11 +59,11 @@ const Home = () => {
                   hover:scale-105
                 "
               >
-                View Projects
+                Ver proyectos
               </a>
 
               <a
-                href="#contact"
+                href="#contactos"
                 className="
                   px-6 py-3 rounded-xl
                   border border-white/10
@@ -70,7 +73,7 @@ const Home = () => {
                   transition-all duration-300
                 "
               >
-                Contact Me
+                Contáctame
               </a>
             </div>
           </AnimatedDiv>
