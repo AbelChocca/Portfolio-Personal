@@ -1,339 +1,288 @@
-import React, { useState } from "react";
-
 import { motion } from "framer-motion";
-
 import { FaGithub, FaLinkedin } from "react-icons/fa";
-
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
 
 import AnimatedDiv from "./AnimatedDiv";
 
+const contacts = [
+  {
+    title: "Correo electrónico",
+    value: "abel.chocca.dev@gmail.com",
+    href: "mailto:abel.chocca.dev@gmail.com",
+    icon: Mail,
+  },
+  {
+    title: "Teléfono",
+    value: "+51 933 130 343",
+    href: "tel:+51933130343",
+    icon: Phone,
+  },
+];
+
+const socials = [
+  {
+    title: "GitHub",
+    value: "github.com/AbelChocca",
+    href: "https://github.com/AbelChocca",
+    icon: FaGithub,
+  },
+  {
+    title: "LinkedIn",
+    value: "linkedin.com/in/abel-chocca",
+    href: "https://www.linkedin.com/in/abel-chocca/",
+    icon: FaLinkedin,
+  },
+];
+
 const Contact = () => {
-  const [form, setForm] = useState({
-    name: "",
-    message: "",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = () => {
-    const mailtoLink = `mailto:abelchocca1010@gmail.com?subject=Portfolio Contact from ${form.name}&body=${encodeURIComponent(form.message)}`;
-
-    window.location.href = mailtoLink;
-  };
-
   return (
     <section
       id="contactos"
-      className="
-        relative
-        w-full
-        py-24 md:py-36
-        overflow-hidden
-      "
+      className="relative w-full py-24 md:py-36 overflow-hidden"
     >
-      {/* Glow */}
+      {/* Glow decorativo */}
       <div
         className="
           absolute
           left-[-120px]
           top-[20%]
-          w-[320px]
-          h-[320px]
+          w-[320px] h-[320px]
           rounded-full
           bg-violet-500/10
           blur-3xl
+          pointer-events-none
         "
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
         <AnimatedDiv stagger preset="fadeUp" distance={18}>
-          <div
-            className="
-              grid
-              grid-cols-1
-              lg:grid-cols-2
-              gap-16
-              items-start
-            "
-          >
-            {/* LEFT SIDE */}
-            <div>
-              <p
-                className="
-                  text-[var(--primary)]
-                  uppercase
-                  tracking-wide
-                  text-sm
-                  font-medium
-                  mb-4
-                "
-              >
-                Contact
-              </p>
-
-              <h2
-                className="
-                  text-4xl
-                  md:text-5xl
-                  font-bold
-                  tracking-tight
-                  leading-tight
-                  text-[var(--foreground)]
-                "
-              >
-                Let's build something amazing together.
-              </h2>
-
-              <p
-                className="
-                  mt-6
-                  text-base md:text-lg
-                  leading-relaxed
-                  text-[var(--muted)]
-                  max-w-xl
-                "
-              >
-                Interested in collaborating, discussing projects or building
-                digital products? Feel free to reach out through social media or
-                send me a direct message.
-              </p>
-
-              {/* SOCIALS */}
-              <div className="flex items-center gap-4 mt-10">
-                <motion.a
-                  href="https://www.linkedin.com/in/abel-chocca/"
-                  target="_blank"
-                  rel="noreferrer"
-                  whileHover={{
-                    y: -4,
-                  }}
-                  className="
-                    group
-                    w-14 h-14
-                    rounded-2xl
-                    border border-[var(--border)]
-                    bg-[var(--card)]
-                    backdrop-blur-xl
-                    flex items-center justify-center
-                    hover:border-[var(--primary)]
-                    transition-all duration-300
-                  "
-                >
-                  <FaLinkedin
-                    className="
-                      text-2xl
-                      text-[var(--foreground)]
-                      group-hover:text-[var(--primary)]
-                      transition-colors
-                    "
-                  />
-                </motion.a>
-
-                <motion.a
-                  href="https://github.com/AbelChocca"
-                  target="_blank"
-                  rel="noreferrer"
-                  whileHover={{
-                    y: -4,
-                  }}
-                  className="
-                    group
-                    w-14 h-14
-                    rounded-2xl
-                    border border-[var(--border)]
-                    bg-[var(--card)]
-                    backdrop-blur-xl
-                    flex items-center justify-center
-                    hover:border-[var(--primary)]
-                    transition-all duration-300
-                  "
-                >
-                  <FaGithub
-                    className="
-                      text-2xl
-                      text-[var(--foreground)]
-                      group-hover:text-[var(--primary)]
-                      transition-colors
-                    "
-                  />
-                </motion.a>
-
-                <motion.button
-                  onClick={handleSubmit}
-                  whileHover={{
-                    y: -4,
-                  }}
-                  className="
-                    group
-                    w-14 h-14
-                    rounded-2xl
-                    border border-[var(--border)]
-                    bg-[var(--card)]
-                    backdrop-blur-xl
-                    flex items-center justify-center
-                    hover:border-[var(--primary)]
-                    transition-all duration-300
-                  "
-                >
-                  <Mail
-                    className="
-                      w-6 h-6
-                      text-[var(--foreground)]
-                      group-hover:text-[var(--primary)]
-                      transition-colors
-                    "
-                  />
-                </motion.button>
-              </div>
-            </div>
-
-            {/* FORM */}
-            <motion.form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSubmit();
-              }}
-              initial={{
-                opacity: 0,
-                y: 30,
-              }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.6,
-              }}
-              viewport={{
-                once: true,
-              }}
+          {/* ENCABEZADO */}
+          <div className="max-w-3xl mb-14">
+            <p
               className="
-                relative
-                overflow-hidden
-                rounded-3xl
-                border border-[var(--border)]
-                bg-[var(--card)]
-                backdrop-blur-2xl
-                p-8 md:p-10
+                text-[var(--primary)]
+                uppercase
+                tracking-wide
+                text-sm
+                font-medium
+                mb-4
               "
             >
-              {/* Glow */}
-              <div
-                className="
-                  absolute inset-0
-                  bg-gradient-to-br
-                  from-violet-500/10
-                  to-transparent
-                "
-              />
+              Contacto
+            </p>
 
-              <div className="relative z-10">
-                <div className="mb-6">
-                  <h3
-                    className="
-                      text-2xl
-                      font-semibold
-                      text-[var(--foreground)]
-                    "
-                  >
-                    Send a message
-                  </h3>
+            <h2
+              className="
+                text-4xl md:text-5xl
+                font-bold
+                tracking-tight
+                leading-tight
+                text-[var(--foreground)]
+              "
+            >
+              Abierto a nuevas oportunidades para aprender y aportar.
+            </h2>
 
-                  <p
-                    className="
-                      mt-2
-                      text-[var(--muted)]
-                    "
-                  >
-                    I'll try to respond as soon as possible.
-                  </p>
-                </div>
+            <p
+              className="
+                mt-6
+                text-base md:text-lg
+                leading-relaxed
+                text-[var(--muted)]
+                max-w-2xl
+              "
+            >
+              Actualmente busco oportunidades de prácticas preprofesionales
+              donde pueda aplicar mis conocimientos en ingeniería de software,
+              automatización y análisis de datos para contribuir a la mejora de
+              procesos y operaciones de negocio. También estoy abierto a
+              colaboraciones y proyectos tecnológicos. Puedes contactarme a
+              través de cualquiera de estos medios.
+            </p>
+          </div>
 
-                <div className="grid gap-5">
-                  {/* NAME */}
-                  <input
-                    id="name"
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    placeholder="Your name"
-                    className="
-                      w-full
-                      rounded-2xl
-                      border border-[var(--border)]
-                      bg-black/5 dark:bg-white/5
-                      px-5 py-4
-                      text-[var(--foreground)]
-                      placeholder:text-[var(--muted)]
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-violet-500/40
-                      transition-all duration-300
-                    "
-                  />
+          {/* CANALES DE CONTACTO */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {contacts.map((contact) => {
+              const Icon = contact.icon;
 
-                  {/* MESSAGE */}
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    placeholder="Tell me about your project..."
-                    rows={6}
+              return (
+                <motion.a
+                  key={contact.title}
+                  href={contact.href}
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.3 }}
+                  className="
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-3xl
+                    border border-[var(--border)]
+                    bg-[var(--card)]
+                    backdrop-blur-xl
+                    p-8
+                    hover:border-[var(--primary)]
+                    transition-colors duration-300
+                  "
+                >
+                  {/* Glow hover */}
+                  <div
                     className="
-                      w-full
-                      rounded-2xl
-                      border border-[var(--border)]
-                      bg-black/5 dark:bg-white/5
-                      px-5 py-4
-                      text-[var(--foreground)]
-                      placeholder:text-[var(--muted)]
-                      focus:outline-none
-                      focus:ring-2
-                      focus:ring-violet-500/40
-                      resize-none
-                      transition-all duration-300
+                      absolute inset-0
+                      opacity-0
+                      group-hover:opacity-100
+                      transition-opacity duration-500
+                      bg-gradient-to-br
+                      from-violet-500/10
+                      to-transparent
+                      pointer-events-none
                     "
                   />
 
-                  {/* BUTTON */}
-                  <motion.button
-                    type="submit"
-                    whileHover={{
-                      scale: 1.02,
-                    }}
-                    whileTap={{
-                      scale: 0.98,
-                    }}
+                  <div className="relative z-10 flex items-start gap-5">
+                    {/* Icono */}
+                    <div
+                      className="
+                        w-12 h-12
+                        shrink-0
+                        rounded-2xl
+                        flex items-center justify-center
+                        bg-violet-500/10
+                        border border-violet-400/20
+                      "
+                    >
+                      <Icon
+                        className="
+                          w-6 h-6
+                          text-[var(--primary)]
+                        "
+                      />
+                    </div>
+
+                    {/* Información */}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm text-[var(--muted)] mb-2">
+                        {contact.title}
+                      </p>
+
+                      <h3
+                        className="
+                          text-base md:text-lg
+                          font-semibold
+                          text-[var(--foreground)]
+                          break-words
+                        "
+                      >
+                        {contact.value}
+                      </h3>
+                    </div>
+
+                    <ArrowUpRight
+                      className="
+                        w-5 h-5
+                        shrink-0
+                        text-[var(--muted)]
+                        group-hover:text-[var(--primary)]
+                        transition-colors
+                      "
+                    />
+                  </div>
+                </motion.a>
+              );
+            })}
+          </div>
+
+          {/* REDES PROFESIONALES */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            {socials.map((social) => {
+              const Icon = social.icon;
+
+              return (
+                <motion.a
+                  key={social.title}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -5 }}
+                  transition={{ duration: 0.3 }}
+                  className="
+                    group
+                    relative
+                    overflow-hidden
+                    rounded-3xl
+                    border border-[var(--border)]
+                    bg-[var(--card)]
+                    backdrop-blur-xl
+                    p-8
+                    hover:border-[var(--primary)]
+                    transition-colors duration-300
+                  "
+                >
+                  {/* Glow hover */}
+                  <div
                     className="
-                      inline-flex
-                      items-center
-                      justify-center
-                      gap-2
-                      rounded-2xl
-                      bg-[var(--primary)]
-                      hover:opacity-90
-                      px-6 py-4
-                      font-medium
-                      text-white
-                      transition-all duration-300
-                      shadow-lg shadow-violet-500/20
+                      absolute inset-0
+                      opacity-0
+                      group-hover:opacity-100
+                      transition-opacity duration-500
+                      bg-gradient-to-br
+                      from-indigo-500/10
+                      to-transparent
+                      pointer-events-none
                     "
-                  >
-                    Send Message
-                    <ArrowUpRight className="w-5 h-5" />
-                  </motion.button>
-                </div>
-              </div>
-            </motion.form>
+                  />
+
+                  <div className="relative z-10 flex items-start gap-5">
+                    {/* Icono */}
+                    <div
+                      className="
+                        w-12 h-12
+                        shrink-0
+                        rounded-2xl
+                        flex items-center justify-center
+                        bg-indigo-500/10
+                        border border-indigo-400/20
+                      "
+                    >
+                      <Icon
+                        className="
+                          w-6 h-6
+                          text-[var(--primary)]
+                        "
+                      />
+                    </div>
+
+                    {/* Información */}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm text-[var(--muted)] mb-2">
+                        {social.title}
+                      </p>
+
+                      <h3
+                        className="
+                          text-base md:text-lg
+                          font-semibold
+                          text-[var(--foreground)]
+                          break-words
+                        "
+                      >
+                        {social.value}
+                      </h3>
+                    </div>
+
+                    <ArrowUpRight
+                      className="
+                        w-5 h-5
+                        shrink-0
+                        text-[var(--muted)]
+                        group-hover:text-[var(--primary)]
+                        transition-colors
+                      "
+                    />
+                  </div>
+                </motion.a>
+              );
+            })}
           </div>
         </AnimatedDiv>
       </div>
