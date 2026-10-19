@@ -8,7 +8,6 @@ import { useDarkMode } from "../dark-mode/useDarkMode";
 const navLinks = [
   { name: "About", href: "#about" },
   { name: "Projects", href: "#proyectos" },
-  { name: "Skills", href: "#skills" },
   { name: "Contact", href: "#contactos" },
 ];
 
